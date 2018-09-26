@@ -15,6 +15,8 @@ output:
     toc: yes
     toc_float: yes
   github_document: default
+bibliography: refs.bib
+csl: ieee-with-url.csl
 editor_options:
   chunk_output_type: console
 ---
@@ -73,11 +75,10 @@ require(citr)
 
 ## Brief introduction
 
-Two decades ago McRuer gave an elaborate account of 
-Now to add to the challenge for our current time one has to realize that every decade fly-by-wire (FBW) systems become more popular amoung manufacturers and the designs become more complex. Of course this comes with the advantage that the flight control system (FCS) can now take care of many tasks that had to be done manually in the past but the side effect of this is that the pilot will be more physically detached from the dynamics of the vehicle which in turn can result in more mismatch between what the pilot feels is happening with the vehicle and what the vehicle is actually doing (the so called automation versus pilot's situational awareness trade-off). And although training protocols advance with time, not every adverse mode can be simulated and dealt with during trainings. To gain a better understanding of the adverse modes this review aims to provide a summary of the previous research on related topics and thus provide a basis upon which our project can build a platform to identify the adverse modes in a more systematic and comprehensive manner.     
+Two decades ago McRuer and his colleagues [@McRuerAviationSafetyPilot1997] gave an elaborate account of the contemporary issues related to adverse pilot-vehicle interactions. It was made clear in their report that studying the pilot or the vehicle in isolation (that was done for years) does not result in solutions for pilot-vehicle system (PVS) unstability problems. Many studies have been conducted on PVS since then but to put the current progress in perspective most studies cite McRuer's work as the main reference (if not the only one) to introduce the problems we have today. Which means that a systematic solution has yet to come out of new studies. Now to add to the challenge for our current time one has to realize that every decade fly-by-wire (FBW) systems become more popular amoung manufacturers and the designs become more complex. Of course this comes with the advantage that the flight control system (FCS) can now take care of many tasks that had to be done manually in the past but the side effect of this is that the pilot will be more physically detached from the dynamics of the vehicle which in turn can result in more mismatch between what the pilot feels is happening with the vehicle and what the vehicle is actually doing (the so called automation versus pilot's situational awareness trade-off). And although training protocols advance with time, not every adverse mode can be simulated and dealt with during trainings. To gain a better understanding of the adverse modes this review aims to provide a summary of the previous research on related topics and thus provide a basis upon which our project can build a platform to identify the adverse modes in a more systematic and comprehensive manner.     
 
 ## Previous findings
-
+We will first provide a review of the ARISTOTEL project before moving on to the latest studies from the last five years. The reason for this is that ARISTOTEL was a large-scale project with several academic groups from different countries involved and it covered a diverse area of research related to the couplings in PVS that result in loss of control and potentially disastrous outcomes.  
 
 ### ARISTOTEL
 ARISTOTEL (AIRCRAFT and ROTORCRAFT PILOT COUPLINGS – TOOLS AND TECHNIQUES FOR ALLEVIATION and DETECTION) was a European project (2010-2013) focused on identifying and resolving aircraft and rotorcraft pilot couplings (A/RPCs) with the following main objectives (the ones highlighted in bold are relevant to our project):
@@ -103,7 +104,7 @@ To analyze APCs, ARISTOTEL used an approach of deviding the couplings into two c
 
 The experimental setup mainly contained tests (with four or five subjects in most tests) on four 6-DOF motion-based simulators that had differences in terms of their capabilities for flight simulation, real-time visual feedback and range of rotations (pitch, roll and yaw) and translations (heave, surge and sway).
 
-
+The pilot model used in ARISTOTEL was developed mainly based on the Gray's [@GrayBoundaryAvoidanceTracking2005] boundary avoidance tracking (BAT) model (also see [@BlakeBoundaryAvoidanceTracking2012]).
 
 
     
@@ -115,12 +116,10 @@ To successfully identify APCs, it might be beneficial to organize them (and thin
 
 - Low vs. high frequency APCs
 - Oscillatory vs. non-oscillatory APCs
-- The time course of different APCs 
+- The time course of different APCs. If an adverse mode has to be predicted 5 seconds before happening in order for the pilot or the FCS to take any useful action, will the information from the respiratory system measurements be available within that timeline or should we rely more on the heart rate recordings, neuromuscular measures, ... 
 
-Things that our project is not concerned with (based on my limited understanding of the white paper and reviewers' comments) and should not become distractions:
 
-- Providing solutions or remedies for APCs or 
-
+## References
 
 
 
@@ -128,10 +127,6 @@ Things that our project is not concerned with (based on my limited understanding
 
 
 
-Using designed perturbation as input:
-# ```{r m1f1, echo=FALSE, cache=TRUE}
-# knitr::include_graphics('irf_dPert.png')
-# ```
 
 </div>
 
