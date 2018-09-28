@@ -78,7 +78,7 @@ require(citr)
 Two decades ago McRuer and his colleagues [@McRuerAviationSafetyPilot1997] gave an elaborate account of the contemporary issues related to adverse pilot-vehicle interactions. It was made clear in their report that studying the pilot or the vehicle in isolation (that was done for years) does not result in solutions for pilot-vehicle system (PVS) instability problems. Many studies have been conducted on PVS since then but to put the current progress in perspective most studies cite McRuer's work as the main reference (if not the only one) to introduce the problems we have today. Which means that a systematic solution has yet to come out of new studies. Now to add to the challenge for our current time one has to realize that every decade fly-by-wire (FBW) systems become more popular among manufacturers and the designs become more complex. Of course this comes with the advantage that the flight control system (FCS) can now take care of many tasks that had to be done manually in the past but the side effect of this is that the pilot will be more physically detached from the dynamics of the vehicle which in turn can result in more mismatch between what the pilot feels is happening with the vehicle and what the vehicle is actually doing (the so-called automation versus pilot's situational awareness trade-off). And although training protocols advance with time, not every adverse mode can be simulated and dealt with during training. To gain a better understanding of the adverse modes this review aims to provide a summary of the previous research on related topics and thus provide a basis upon which our project can build a platform to identify the adverse modes in a more systematic and comprehensive manner.     
 
 ## Previous findings
-We will first provide a review of the ARISTOTEL project [@WelcomeARISTOTEL] before moving on to the latest studies from the last five years. The reason for this is that ARISTOTEL was a large-scale project with eleven academic institutions from different countries involved and it covered a diverse area of research related to the couplings in PVS that result in loss of control and potentially disastrous outcomes. A summary of modeling efforts prior to ARISTOTEL project is provided in [@LoneReviewPilotModelling].  
+We will first provide a review of the ARISTOTEL project [@WelcomeARISTOTEL] before mentioning some studies from the last five years. The reason for this is that ARISTOTEL was a large-scale project with eleven academic institutions from different countries involved and it covered a diverse area of research related to PVS couplings that could result in loss of control and potentially disastrous outcomes. A summary of modeling efforts prior to ARISTOTEL project is provided in [@LoneReviewPilotModelling].  
 
 ### ARISTOTEL
 ARISTOTEL (AIRCRAFT and ROTORCRAFT PILOT COUPLINGS – TOOLS AND TECHNIQUES FOR ALLEVIATION and DETECTION) was a European project (2010-2013) focused on identifying and resolving aircraft and rotorcraft pilot couplings (A/RPCs) with the following main objectives (the ones highlighted in bold are relevant to our project):
@@ -115,27 +115,37 @@ More details on experiments and modeling results of ARISTOTEL are provided in th
 
 ### More recent studies (2013-2018)
 
-An important contribution to APCs in high-frequency range comes from BDFT. In recent years the group of Venrooij et al. (e.g. [@VenrooijBiodynamicFeedthroughModel2014], [@VenrooijMathematicalBiodynamicFeedthrough2014], [@VenrooijBiodynamicFeedthroughCurrent2016]) has done extensive studies on modeling and computational analysis of BDFT. 
+An important contribution to APCs in the high-frequency range comes from BDFT. What makes BDFT a complex and difficult concept to study is that it depends on many factors such as limb dynamics, vehicle dynamics, disturbance characteristics, and cockpit design. In recent years the group of Venrooij et al. (e.g. [@VenrooijBiodynamicFeedthroughModel2014], [@VenrooijMathematicalBiodynamicFeedthrough2014], [@VenrooijBiodynamicFeedthroughCurrent2016]) has done extensive studies on modeling and computational analysis of BDFT. They have characterized BDFT using neuromuscular admittance models (admittance is the relationship between the input force and the output position). The approach used has modeled the neuromuscular dynamics of the arm with intrinsic and reflexive components and it has separately modeled the central nervous system (CNS). To successfully quantify the effects of BDFT on limb position the feedback from Golgi tendon organs  (GTO) and muscle spindles were incorporated in their arm model. Applying their model to data from rotorcraft experiments, they showed that their parametric model predicts the effects of BDFT on the pilot's performance better than black box models used in the past. Recently the group showed that time-varying models can more accurately predict the effects of BDFT at higher frequencies especially during transient events (e.g. sudden changes in the pilot task or the vehicle aerodynamics).
+
+The application of wavelets in the time-varying analysis of APCs has been recently shown to be promising ([@KlydeAssessmentScalogramBasedPIO], [@CameronFurtherAssessmentScalogramBased]). Since the traditional approach of modeling the system as LTI cannot guarantee the identification of transient patterns in PIOs, the analysis methods to characterize these events have gained more popularity in recent years. While the wavelet analysis is not used for modeling the system, it can be very advantageous in analyzing the model outcomes and the data used for model validation. For instance, the wavelet transform is used to locate in the time domain the power peaks of the pilot input during 
+This is an important information in identifying PIOs which is provided through the use of Fourier transform in LTI models. Applying wavelet methods to pitch and roll tracking and pilot-in-the-loop simulation data ([@KlydeAssessmentScalogramBasedPIO], [@CameronFurtherAssessmentScalogramBased]) it has been shown that it can successfully identify PIO events.  
+
     
 ## Opportunities and challenges
 
+Here is a brief list of areas in which more progress is needed to identify APCs. While each area is an opportunity for future research, at the same time it represents the challenges that made it stay partly untouched by previous research:
+
+- A comprehensive multisensory model of the pilot has yet to be developed. While many studies have approached this problem in some ways the effort requires a team with very diverse backgrounds. Often times due to the lack of expertise in some areas parts of the model have been ignored or oversimplifies (e.g. respiratory, vestibular, ...).
+- A lot of research has been done on the category I (i.e. linear) APCs and some efforts have been put in characterizing category II (i.e. quasi-linear). However, category III (nonstationary and or nonlinear) ACPs are subjects almost untouched. One challenge here has been the difficulty of developing time-varying and or nonlinear models. Sources on the identification of transient and nonlinear APCs are currently almost non-existent.
+- Data-driven modeling has been used in many scientific fields recently. But the power data in advancing the modeling efforts have not been explored in the identification os APCs. One challenge here has been the collection of large datasets. Many studies in the past have relied on experimental data from a few subjects. it has been shown recently that data-driven techniques can be used to fully characterize the mathematical model of a system [@BruntonDiscoveringgoverningequations2016].
+
+
 ## Considerations and questions
 
-To successfully identify APCs, it might be beneficial to organize them (and think about them) in some categories (e.g. McRuer classification [@McRuerAviationSafetyPilot1997]). Identifying APCs as a general phenomenon without categorizing them might be very difficult if not theoretically impossible since different groups of APCs may have different signatures and might be shaped through separate channels (e.g. vision is dominant during low frequency events while the vestibular inputs are dominant at higher frequencies). So it may help to think about APCs in the following ways:
+To successfully identify APCs, it might be beneficial to organize them (and think about them) in some categories (e.g. McRuer classification [@McRuerAviationSafetyPilot1997]). Identifying APCs as a general phenomenon without categorizing them might be very difficult if not theoretically impossible since different groups of APCs may have different signatures and might be shaped through separate channels (e.g. vision is dominant during low-frequency events while the vestibular inputs are dominant at higher frequencies). So it may help to think about APCs in the following ways:
 
-- Low vs. high frequency APCs. Any plans to differently address these categories (i.e. category I linear versus category II quasi-linear versus category III nonstationary and/or complex nonlinearities. See [@McRuerAviationSafetyPilot1997] for more info)?
+- Low vs. high-frequency APCs. Any plans to differently address these categories (i.e. category I linear versus category II quasi-linear versus category III nonstationary and/or complex nonlinearities. See [@McRuerAviationSafetyPilot1997] for more info)?
 - Low vs. high amplitude APCs (For small amplitudes the assumption of linearity works in most cases. Larger amplitude perturbations, however, may violate this assumption)
 - Oscillatory vs. non-oscillatory APCs
-- The time course of different APCs. If an adverse mode has to be predicted 5 seconds before happening in order for the pilot or the FCS to take any useful action, will the information from the respiratory system measurements be available within that timeline or should we rely more on the heart rate recordings, neuromuscular measures, ... This issue might be related to sensory-rewighting we implement in the model.
+- The time course of different APCs. If an adverse mode has to be predicted 5 seconds before happening in order for the pilot or the FCS to take any useful action, will the information from the respiratory system measurements be available within that timeline or should we rely more on the heart rate recordings, neuromuscular measures, ... This issue might be related to sensory-reweighting we implement in the model.
 
+Some questions:
 
-How does the effectiveness of the predictions evaluated?!
-
-Neuromuscular delay
-
-How do we model vision? Will we use the tau-coupling theory [@LeeGuidingMovementCoupling1998] used in some pilot modelings ([@PadfieldHowHelicopterPilots2003], [@PadfieldHowlongpilots2005], [@R.D.ArentsPredictiveLandingGuidance2011])?
-
-Plans for stability analysis? 
+- How does the effectiveness of the predictions will be evaluated? Beyond experiments is there any dataset available from real flights to check for false positives and false negatives in identifying APCs?
+- Any plan to model the effects of neuromuscular interactions? 
+- How do we model vision? Will we use the tau-coupling theory [@LeeGuidingMovementCoupling1998] used in some pilot modelings ([@PadfieldHowHelicopterPilots2003], [@PadfieldHowlongpilots2005], [@R.D.ArentsPredictiveLandingGuidance2011])?
+- Plans for stability analysis?
+- Any plans for taking advantage of data-driven modeling approaches? 
 
 
 ## References
