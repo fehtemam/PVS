@@ -115,7 +115,7 @@ More details on experiments and modeling results of ARISTOTEL are provided in th
 
 ### More recent studies (2013-2018)
 
-a
+An important contribution to APCs in high-frequency range comes from BDFT. In recent years the group of Venrooij et al. (e.g. [@VenrooijBiodynamicFeedthroughModel2014], [@VenrooijMathematicalBiodynamicFeedthrough2014], [@VenrooijBiodynamicFeedthroughCurrent2016]) has done extensive studies on modeling and computational analysis of BDFT. 
     
 ## Opportunities and challenges
 

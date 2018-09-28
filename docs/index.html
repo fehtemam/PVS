@@ -266,7 +266,7 @@ pre { /* Code block - determines code spacing between lines */
 <p>The pilot model used in ARISTOTEL was developed mainly based on the Gray’s <span class="citation">[5]</span> boundary avoidance tracking (BAT) model (also see <span class="citation">[6]</span> from the research at Wright-Patterson). The idea behind the model is that during APCs the pilot does not follow a point tracking (PT) strategy but rather he/she is trying to avoid some opposing events which can be described as boundaries. To give an intuitive example think of a shooter that is trying to avoid the edges of the board versus one that’s aiming for the bull’s eye (two very different strategies). So to fully model the pilot behavior the model switches between PT and boundary avoidance (BA). Gray hypothesized that as the pilot approaches a boundary, the feedback control gain increases linearly. The model then predicts whether a BAT event is an APC based on the distance-to-boundary (<span class="math inline">\(\tau\)</span>) parameter.</p>
 <p>More details on experiments and modeling results of ARISTOTEL are provided in the deliverables and publications section of the project website <span class="citation">[7]</span>. Of particular interest are the following publications: <span class="citation">[8]</span>, <span class="citation">[9]</span>, <span class="citation">[10]</span>, <span class="citation">[11]</span>, <span class="citation">[12]</span>, <span class="citation">[13]</span> and <span class="citation">[14]</span>.</p>
 <h3 id="more-recent-studies-2013-2018">More recent studies (2013-2018)</h3>
-<p>a</p>
+<p>An important contribution to APCs in high-frequency range comes from BDFT. In recent years the group of Venrooij et al. (e.g. <span class="citation">[15]</span>, <span class="citation">[16]</span>, <span class="citation">[17]</span>) has done extensive studies on modeling and computational analysis of BDFT.</p>
 <h2 id="opportunities-and-challenges">Opportunities and challenges</h2>
 <h2 id="considerations-and-questions">Considerations and questions</h2>
 <p>To successfully identify APCs, it might be beneficial to organize them (and think about them) in some categories (e.g. McRuer classification <span class="citation">[1]</span>). Identifying APCs as a general phenomenon without categorizing them might be very difficult if not theoretically impossible since different groups of APCs may have different signatures and might be shaped through separate channels (e.g. vision is dominant during low frequency events while the vestibular inputs are dominant at higher frequencies). So it may help to think about APCs in the following ways:</p>
@@ -278,7 +278,7 @@ pre { /* Code block - determines code spacing between lines */
 </ul>
 <p>How does the effectiveness of the predictions evaluated?!</p>
 <p>Neuromuscular delay</p>
-<p>How do we model vision? Will we use the tau-coupling theory <span class="citation">[15]</span> used in some pilot modelings (<span class="citation">[16]</span>, <span class="citation">[17]</span>, <span class="citation">[18]</span>)?</p>
+<p>How do we model vision? Will we use the tau-coupling theory <span class="citation">[18]</span> used in some pilot modelings (<span class="citation">[19]</span>, <span class="citation">[20]</span>, <span class="citation">[21]</span>)?</p>
 <p>Plans for stability analysis?</p>
 <h2 id="references">References</h2>
 </div>
@@ -325,17 +325,26 @@ pre { /* Code block - determines code spacing between lines */
 <div id="ref-Masaraticlosedloopexperiment2014a">
 <p>[14] P. Masarati, G. Quaranta, L. Lu, and M. Jump, “A closed loop experiment of collective bounce aeroelastic RotorcraftPilot Coupling,” <em>Journal of Sound and Vibration</em>, vol. 333, no. 1, pp. 307–325, Jan. 2014. </p>
 </div>
+<div id="ref-VenrooijBiodynamicFeedthroughModel2014">
+<p>[15] J. Venrooij <em>et al.</em>, “A Biodynamic Feedthrough Model Based on Neuromuscular Principles,” <em>IEEE Transactions on Cybernetics</em>, vol. 44, no. 7, pp. 1141–1154, Jul. 2014. </p>
+</div>
+<div id="ref-VenrooijMathematicalBiodynamicFeedthrough2014">
+<p>[16] J. Venrooij <em>et al.</em>, “Mathematical Biodynamic Feedthrough Model Applied to Rotorcraft,” <em>IEEE Transactions on Cybernetics</em>, vol. 44, no. 7, pp. 1025–1038, Jul. 2014. </p>
+</div>
+<div id="ref-VenrooijBiodynamicFeedthroughCurrent2016">
+<p>[17] J. Venrooij, M. Olivari, and H. H. Bülthoff, “Biodynamic Feedthrough: Current Status and Open Issues,” <em>IFAC-PapersOnLine</em>, vol. 49, no. 19, pp. 120–125, Jan. 2016. </p>
+</div>
 <div id="ref-LeeGuidingMovementCoupling1998">
-<p>[15] D. N. Lee, “Guiding Movement by Coupling Taus,” <em>Ecological Psychology</em>, vol. 10, nos. 3-4, pp. 221–250, Sep. 1998. </p>
+<p>[18] D. N. Lee, “Guiding Movement by Coupling Taus,” <em>Ecological Psychology</em>, vol. 10, nos. 3-4, pp. 221–250, Sep. 1998. </p>
 </div>
 <div id="ref-PadfieldHowHelicopterPilots2003">
-<p>[16] G. D. Padfield, D. N. Lee, and R. Bradley, “How Do Helicopter Pilots Know When to Stop, Turn or Pull Up? (Developing Guidelines for Vision Aids).” https://www.ingentaconnect.com/content/ahs/jahs/2003/00000048/00000002/art00005?crawler=true, Apr-2003. </p>
+<p>[19] G. D. Padfield, D. N. Lee, and R. Bradley, “How Do Helicopter Pilots Know When to Stop, Turn or Pull Up? (Developing Guidelines for Vision Aids).” https://www.ingentaconnect.com/content/ahs/jahs/2003/00000048/00000002/art00005?crawler=true, Apr-2003. </p>
 </div>
 <div id="ref-PadfieldHowlongpilots2005">
-<p>[17] G. D. Padfield, G. Clark, and A. Taghizad, “How long do pilots look forward? Perspective visual guidance in terrain-hugging flight,” 2005. </p>
+<p>[20] G. D. Padfield, G. Clark, and A. Taghizad, “How long do pilots look forward? Perspective visual guidance in terrain-hugging flight,” 2005. </p>
 </div>
 <div id="ref-R.D.ArentsPredictiveLandingGuidance2011">
-<p>[18] R. R. D. Arents, J. Groeneweg, C. Borst, M. M. van Paassen, and M. Mulder, “Predictive Landing Guidance in Synthetic Vision Displays [Abstract],” <em>The Open Aerospace Engineering Journal</em>, vol. 4, no. 1, Sep. 2011. </p>
+<p>[21] R. R. D. Arents, J. Groeneweg, C. Borst, M. M. van Paassen, and M. Mulder, “Predictive Landing Guidance in Synthetic Vision Displays [Abstract],” <em>The Open Aerospace Engineering Journal</em>, vol. 4, no. 1, Sep. 2011. </p>
 </div>
 </div>
 </div>
