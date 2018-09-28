@@ -242,9 +242,9 @@ pre { /* Code block - determines code spacing between lines */
 </style>
 <div style="line-height: 2em;">
 <h2 id="brief-introduction">Brief introduction</h2>
-<p>Two decades ago McRuer and his colleagues <span class="citation">[1]</span> gave an elaborate account of the contemporary issues related to adverse pilot-vehicle interactions. It was made clear in their report that studying the pilot or the vehicle in isolation (that was done for years) does not result in solutions for pilot-vehicle system (PVS) unstability problems. Many studies have been conducted on PVS since then but to put the current progress in perspective most studies cite McRuer’s work as the main reference (if not the only one) to introduce the problems we have today. Which means that a systematic solution has yet to come out of new studies. Now to add to the challenge for our current time one has to realize that every decade fly-by-wire (FBW) systems become more popular amoung manufacturers and the designs become more complex. Of course this comes with the advantage that the flight control system (FCS) can now take care of many tasks that had to be done manually in the past but the side effect of this is that the pilot will be more physically detached from the dynamics of the vehicle which in turn can result in more mismatch between what the pilot feels is happening with the vehicle and what the vehicle is actually doing (the so called automation versus pilot’s situational awareness trade-off). And although training protocols advance with time, not every adverse mode can be simulated and dealt with during trainings. To gain a better understanding of the adverse modes this review aims to provide a summary of the previous research on related topics and thus provide a basis upon which our project can build a platform to identify the adverse modes in a more systematic and comprehensive manner.</p>
+<p>Two decades ago McRuer and his colleagues <span class="citation">[1]</span> gave an elaborate account of the contemporary issues related to adverse pilot-vehicle interactions. It was made clear in their report that studying the pilot or the vehicle in isolation (that was done for years) does not result in solutions for pilot-vehicle system (PVS) instability problems. Many studies have been conducted on PVS since then but to put the current progress in perspective most studies cite McRuer’s work as the main reference (if not the only one) to introduce the problems we have today. Which means that a systematic solution has yet to come out of new studies. Now to add to the challenge for our current time one has to realize that every decade fly-by-wire (FBW) systems become more popular among manufacturers and the designs become more complex. Of course this comes with the advantage that the flight control system (FCS) can now take care of many tasks that had to be done manually in the past but the side effect of this is that the pilot will be more physically detached from the dynamics of the vehicle which in turn can result in more mismatch between what the pilot feels is happening with the vehicle and what the vehicle is actually doing (the so-called automation versus pilot’s situational awareness trade-off). And although training protocols advance with time, not every adverse mode can be simulated and dealt with during training. To gain a better understanding of the adverse modes this review aims to provide a summary of the previous research on related topics and thus provide a basis upon which our project can build a platform to identify the adverse modes in a more systematic and comprehensive manner.</p>
 <h2 id="previous-findings">Previous findings</h2>
-<p>We will first provide a review of the ARISTOTEL project before moving on to the latest studies from the last five years. The reason for this is that ARISTOTEL was a large-scale project with several academic groups from different countries involved and it covered a diverse area of research related to the couplings in PVS that result in loss of control and potentially disastrous outcomes.</p>
+<p>We will first provide a review of the ARISTOTEL project <span class="citation">[2]</span> before moving on to the latest studies from the last five years. The reason for this is that ARISTOTEL was a large-scale project with eleven academic institutions from different countries involved and it covered a diverse area of research related to the couplings in PVS that result in loss of control and potentially disastrous outcomes. A summary of modeling efforts prior to ARISTOTEL project is provided in <span class="citation">[3]</span>.</p>
 <h3 id="aristotel">ARISTOTEL</h3>
 <p>ARISTOTEL (AIRCRAFT and ROTORCRAFT PILOT COUPLINGS – TOOLS AND TECHNIQUES FOR ALLEVIATION and DETECTION) was a European project (2010-2013) focused on identifying and resolving aircraft and rotorcraft pilot couplings (A/RPCs) with the following main objectives (the ones highlighted in bold are relevant to our project):</p>
 <ul>
@@ -257,32 +257,85 @@ pre { /* Code block - determines code spacing between lines */
 <li>Develop protocols for pilot training that can unmask A/RPC.</li>
 <li>Develop a coherent design guide for the aircraft and the FCS that considers the implications of A/RPC.</li>
 </ul>
-<p>ARISTOTEL finally defined A//RPC as:</p>
+<p>ARISTOTEL defined A//RPC as:</p>
 <p>“An Aircraft- or Rotorcraft-Pilot Coupling (A/RPC) is an unintentional (inadvertent) sustained or uncontrollable vehicle oscillations characterized by a mismatch between the pilot’s mental model of the vehicle dynamics and the actual vehicle dynamics. The result is that the pilot’s control input is out-of-phase with the response of the vehicle, possibly causing a diverging motion.”</p>
-<p>While in its goals and definitions ARISTOTEL refered to the couplings as an issue related to both aircrafts and rotorcrafts (hence the term A/RPC) most of their focus in their publications were on examples from rotorcrafts.</p>
-<p>For the sake of simplicity from now on we will refer to the couplings as APCs.</p>
-<p>To analyze APCs, ARISTOTEL used an approach of deviding the couplings into two categories of rigid body APCs (below 2 Hz) and aeroservoelastic APCs (2-8 Hz) with acknoeledging some overlap between the two. Most studies use a passive model for the pilot in 2-8 Hz range since it is generally believed that in this range the frequencies are too high for the pilot to have any meaningful corrective impact on the motions.</p>
-<p>The experimental setup mainly contained tests (with four or five subjects in most tests) on four 6-DOF motion-based simulators that had differences in terms of their capabilities for flight simulation, real-time visual feedback and range of rotations (pitch, roll and yaw) and translations (heave, surge and sway).</p>
-<p>The pilot model used in ARISTOTEL was developed mainly based on the Gray’s <span class="citation">[2]</span> boundary avoidance tracking (BAT) model (also see <span class="citation">[3]</span>).</p>
+<p>While in its goals and definitions ARISTOTEL referred to the couplings as an issue related to both aircraft and rotorcrafts (hence the term A/RPC) most of their focus in their publications were on examples from rotorcrafts. This limits the generalizability of some of the findings since they are vehicle specific (e.g. vertical bouncing that occurs in helicopters).</p>
+<p>For the sake of simplicity from now on we will refer to the couplings as APCs. It is noteworthy to mention that prior to defining and using the term APC the common terms used to address the adverse modes (e.g. pitch bobble, roll ratchet, …) were pilot induced oscillations (PIO) and pilot assisted oscillations (PAO). Although PIO/PAO terms do not explicitly include non-oscillatory adverse modes in their definitions, the topic of adverse modes and proposed solutions to them have been traditionally discussed under these terms (e.g. see <span class="citation">[4]</span>).</p>
+<p>The experimental setup in ARISTOTEL mainly contained tests (with four or five subjects in most tests) on four 6-DOF motion-based simulators that had differences in terms of their capabilities for flight simulation, real-time visual feedback and range of rotations (pitch, roll and yaw) and translations (heave, surge and sway).</p>
+<p>To analyze APCs, ARISTOTEL used an approach of dividing the couplings into two categories of rigid body APCs (below 2 Hz) and aeroservoelastic APCs (2-8 Hz) with acknowledging some overlap between the two. Most studies in the past have used a passive model for the pilot in 2-8 Hz range since it is generally believed that in this range the frequencies are too high for the pilot to have any meaningful corrective impact on the motions. An important phenomenon related to APCs in the high-frequency range is biodynamic feedthrough (BDFT). BDFT is the transfer of vibrations and impulsive movements of the aircraft or its parts to the pilot’s body and arm. ARISTOTEL characterized BDFT through the application of perturbations to the pilot’s arm by moving the seat in the heave, surge and sway directions (non-parametric system ID). To do the same through parametric system ID one requires to develop a neuromuscular model of the human arm (or use one from literature).</p>
+<p>The pilot model used in ARISTOTEL was developed mainly based on the Gray’s <span class="citation">[5]</span> boundary avoidance tracking (BAT) model (also see <span class="citation">[6]</span> from the research at Wright-Patterson). The idea behind the model is that during APCs the pilot does not follow a point tracking (PT) strategy but rather he/she is trying to avoid some opposing events which can be described as boundaries. To give an intuitive example think of a shooter that is trying to avoid the edges of the board versus one that’s aiming for the bull’s eye (two very different strategies). So to fully model the pilot behavior the model switches between PT and boundary avoidance (BA). Gray hypothesized that as the pilot approaches a boundary, the feedback control gain increases linearly. The model then predicts whether a BAT event is an APC based on the distance-to-boundary (<span class="math inline">\(\tau\)</span>) parameter.</p>
+<p>More details on experiments and modeling results of ARISTOTEL are provided in the deliverables and publications section of the project website <span class="citation">[7]</span>. Of particular interest are the following publications: <span class="citation">[8]</span>, <span class="citation">[9]</span>, <span class="citation">[10]</span>, <span class="citation">[11]</span>, <span class="citation">[12]</span>, <span class="citation">[13]</span> and <span class="citation">[14]</span>.</p>
+<h3 id="more-recent-studies-2013-2018">More recent studies (2013-2018)</h3>
+<p>a</p>
 <h2 id="opportunities-and-challenges">Opportunities and challenges</h2>
 <h2 id="considerations-and-questions">Considerations and questions</h2>
-<p>To successfully identify APCs, it might be beneficial to organize them (and think about them) in some categories. Identifying APCs as a general phenomenon without categorizing them might be very difficult if not theoretically impossible since different groups of APCs may have different signatures. It may help to think about APCs in the following ways:</p>
+<p>To successfully identify APCs, it might be beneficial to organize them (and think about them) in some categories (e.g. McRuer classification <span class="citation">[1]</span>). Identifying APCs as a general phenomenon without categorizing them might be very difficult if not theoretically impossible since different groups of APCs may have different signatures and might be shaped through separate channels (e.g. vision is dominant during low frequency events while the vestibular inputs are dominant at higher frequencies). So it may help to think about APCs in the following ways:</p>
 <ul>
-<li>Low vs. high frequency APCs</li>
+<li>Low vs. high frequency APCs. Any plans to differently address these categories (i.e. category I linear versus category II quasi-linear versus category III nonstationary and/or complex nonlinearities. See <span class="citation">[1]</span> for more info)?</li>
+<li>Low vs. high amplitude APCs (For small amplitudes the assumption of linearity works in most cases. Larger amplitude perturbations, however, may violate this assumption)</li>
 <li>Oscillatory vs. non-oscillatory APCs</li>
-<li>The time course of different APCs. If an adverse mode has to be predicted 5 seconds before happening in order for the pilot or the FCS to take any useful action, will the information from the respiratory system measurements be available within that timeline or should we rely more on the heart rate recordings, neuromuscular measures, …</li>
+<li>The time course of different APCs. If an adverse mode has to be predicted 5 seconds before happening in order for the pilot or the FCS to take any useful action, will the information from the respiratory system measurements be available within that timeline or should we rely more on the heart rate recordings, neuromuscular measures, … This issue might be related to sensory-rewighting we implement in the model.</li>
 </ul>
+<p>How does the effectiveness of the predictions evaluated?!</p>
+<p>Neuromuscular delay</p>
+<p>How do we model vision? Will we use the tau-coupling theory <span class="citation">[15]</span> used in some pilot modelings (<span class="citation">[16]</span>, <span class="citation">[17]</span>, <span class="citation">[18]</span>)?</p>
+<p>Plans for stability analysis?</p>
 <h2 id="references">References</h2>
 </div>
 <div id="refs" class="references">
 <div id="ref-McRuerAviationSafetyPilot1997">
 <p>[1] McRuer, Droste, Hansman, and Hess, <em>Aviation Safety and Pilot Control: Understanding and Preventing Unfavorable Pilot-Vehicle Interactions</em>. National Academies Press, 1997. </p>
 </div>
+<div id="ref-WelcomeARISTOTEL">
+<p>[2] “Welcome | ARISTOTEL.” http://www.aristotel-project.eu/. </p>
+</div>
+<div id="ref-LoneReviewPilotModelling">
+<p>[3] M. Lone and A. Cooke, “Review of Pilot Modelling Techniques,” in <em>48th AIAA Aerospace Sciences Meeting Including the New Horizons Forum and Aerospace Exposition</em>, American Institute of Aeronautics and Astronautics. </p>
+</div>
+<div id="ref-MitchellIdentifyingPIOSignature2006">
+<p>[4] D. Mitchell and D. Klyde, “Identifying a PIO Signature - New Techniques Applied to an Old Problem,” in <em>AIAA Atmospheric Flight Mechanics Conference and Exhibit</em>, American Institute of Aeronautics and Astronautics, 2006. </p>
+</div>
 <div id="ref-GrayBoundaryAvoidanceTracking2005">
-<p>[2] W. Gray, “Boundary Avoidance Tracking: A New Pilot Tracking Model,” in <em>AIAA Atmospheric Flight Mechanics Conference and Exhibit</em>, 2005. </p>
+<p>[5] W. Gray, “Boundary Avoidance Tracking: A New Pilot Tracking Model,” in <em>AIAA Atmospheric Flight Mechanics Conference and Exhibit</em>, 2005. </p>
 </div>
 <div id="ref-BlakeBoundaryAvoidanceTracking2012">
-<p>[3] R. D. Blake, <em>Boundary Avoidance Tracking: Consequences of Imposed Boundaries on Pilot-Aircraft Performance</em>. BiblioScholar, 2012. </p>
+<p>[6] R. D. Blake, <em>Boundary Avoidance Tracking: Consequences of Imposed Boundaries on Pilot-Aircraft Performance</em>. BiblioScholar, 2012. </p>
+</div>
+<div id="ref-PublicationsARISTOTEL">
+<p>[7] “Publications | ARISTOTEL.” http://aristotel-project.eu/publications/. </p>
+</div>
+<div id="ref-QuarantaRobustStabilityAnalysis2012">
+<p>[8] G. Quaranta <em>et al.</em>, “Robust Stability Analysis: A Tool to Assess the Impact of Biodynamic Feedthrough on Rotorcraft,” 2012. </p>
+</div>
+<div id="ref-MasaratiTheoreticalExperimentalInvestigation2012">
+<p>[9] P. Masarati <em>et al.</em>, “Theoretical and Experimental Investigation of Aeroelastic Rotorcraft-Pilot Coupling,” 2012. </p>
+</div>
+<div id="ref-MasaratiExperimentalnumericalhelicopter2013">
+<p>[10] P. Masarati, G. Quaranta, and M. Jump, “Experimental and numerical helicopter pilot characterization for aeroelastic rotorcraftPilot coupling analysis,” <em>Proceedings of the Institution of Mechanical Engineers, Part G: Journal of Aerospace Engineering</em>, vol. 227, no. 1, pp. 125–141, Jan. 2013. </p>
+</div>
+<div id="ref-LuInvestigationAdverseAeroelastic2013">
+<p>[11] L. Lu <em>et al.</em>, “Investigation of Adverse Aeroelastic Rotorcraft-Pilot Coupling Using Real-Time Simulation,” 2013. </p>
+</div>
+<div id="ref-GennarettiEffectsBiodynamicFeedthrough2013">
+<p>[12] M. Gennaretti, J. Serafini, P. Masarati, and G. Quaranta, “Effects of Biodynamic Feedthrough in Rotorcraft/Pilot Coupling: Collective Bounce Case,” <em>Journal of Guidance, Control, and Dynamics</em>, vol. 36, no. 6, pp. 1709–1721, Jul. 2013. </p>
+</div>
+<div id="ref-MasaratiDependencehelicopterpilots2013">
+<p>[13] P. Masarati, G. Quaranta, and A. Zanoni, “Dependence of helicopter pilots’ biodynamic feedthrough on upper limbs’ muscular activation patterns,” <em>Proceedings of the Institution of Mechanical Engineers, Part K: Journal of Multi-body Dynamics</em>, vol. 227, no. 4, pp. 344–362, Dec. 2013. </p>
+</div>
+<div id="ref-Masaraticlosedloopexperiment2014a">
+<p>[14] P. Masarati, G. Quaranta, L. Lu, and M. Jump, “A closed loop experiment of collective bounce aeroelastic RotorcraftPilot Coupling,” <em>Journal of Sound and Vibration</em>, vol. 333, no. 1, pp. 307–325, Jan. 2014. </p>
+</div>
+<div id="ref-LeeGuidingMovementCoupling1998">
+<p>[15] D. N. Lee, “Guiding Movement by Coupling Taus,” <em>Ecological Psychology</em>, vol. 10, nos. 3-4, pp. 221–250, Sep. 1998. </p>
+</div>
+<div id="ref-PadfieldHowHelicopterPilots2003">
+<p>[16] G. D. Padfield, D. N. Lee, and R. Bradley, “How Do Helicopter Pilots Know When to Stop, Turn or Pull Up? (Developing Guidelines for Vision Aids).” https://www.ingentaconnect.com/content/ahs/jahs/2003/00000048/00000002/art00005?crawler=true, Apr-2003. </p>
+</div>
+<div id="ref-PadfieldHowlongpilots2005">
+<p>[17] G. D. Padfield, G. Clark, and A. Taghizad, “How long do pilots look forward? Perspective visual guidance in terrain-hugging flight,” 2005. </p>
+</div>
+<div id="ref-R.D.ArentsPredictiveLandingGuidance2011">
+<p>[18] R. R. D. Arents, J. Groeneweg, C. Borst, M. M. van Paassen, and M. Mulder, “Predictive Landing Guidance in Synthetic Vision Displays [Abstract],” <em>The Open Aerospace Engineering Journal</em>, vol. 4, no. 1, Sep. 2011. </p>
 </div>
 </div>
 </div>
